@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -9,16 +8,17 @@
         body { font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; line-height: 1.8; color: #333; background: #fff; margin: 0; padding: 0; }
         .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
         header { text-align: center; padding: 60px 0; border-bottom: 1px solid #eee; }
-        h1 { font-size: 2.2rem; letter-spacing: -0.05em; }
+        h1 { font-size: 2.2rem; letter-spacing: -0.05em; margin-bottom: 10px; }
         .countdown-card { background: #000; color: #fff; padding: 30px; border-radius: 15px; text-align: center; margin: 30px 0; }
         #timer { font-size: 2.5rem; font-weight: bold; }
         .section { margin-bottom: 50px; }
         .section h2 { font-size: 1.5rem; border-left: 5px solid #000; padding-left: 15px; margin-bottom: 20px; }
         .highlight { background: #ffff00; font-weight: bold; padding: 0 5px; }
         .bbs-box { background: #f4f4f4; border: 2px solid #000; padding: 30px; border-radius: 10px; text-align: center; }
-        .btn-bbs { display: inline-block; background: #000; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; }
+        .btn-bbs { display: inline-block; background: #000; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 10px; min-width: 200px; }
         .btn-bbs:hover { background: #333; }
         footer { text-align: center; padding: 40px; color: #999; font-size: 0.8rem; }
+        .status-badge { display: inline-block; background: #eef; color: #33a; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; margin-top: 10px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -26,17 +26,11 @@
 <header>
     <h1>日本OSデバッグ宣言</h1>
     <p>地政学リスクと、9割の庶民のための生存戦略</p>
+    <div class="status-badge">X（旧Twitter）インプレッション 30,000突破・観測継続中</div>
 </header>
 
 <div class="container">
     
-    <!-- ここにカウンターを移動しました -->
-    <div style="text-align: center; margin: 20px 0; font-family: sans-serif;">
-        <p style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">本拠地 延べ訪問者数</p>
-        <img src="https://f-counter.net" alt="counter" style="border: none;">
-        <p style="font-size: 0.8rem; color: #999; margin-top: 5px;">※3万人の流入を順次記録中</p>
-    </div>
-
     <div class="countdown-card">
         <div style="font-size: 0.9rem; color: #aaa; margin-bottom: 10px;">8.10 有給ボイコットまで</div>
         <div id="timer">計測中...</div>
@@ -60,12 +54,15 @@
    <div class="bbs-box">
     <h3>作戦会議室（公式掲示板）</h3>
     <p style="font-size: 0.9rem; text-align: left; margin-bottom: 20px;">
-        現在、メディア掲載（スポニチ・dメニュー等）による急激なアクセス集中により、議論の透明性とリアルタイム性を確保するため、掲示板機能をX上の公式スレッドに集約しています。
+        現在、SNS上での急激なアクセス集中により、議論の透明性を確保するため、機能をX上の公式スレッドに集約しています。
     </p>
     <div class="bbs-container">
-    <a href="https://x.com/90percent_side/status/2047189123170210071" class="btn-bbs" target="_blank">Xで議論に参加</a>
-    <a href="https://hayabusa3.open2ch.net/test/read.cgi/news/1777005531/l10" class="btn-bbs" target="_blank">おーぷん2ch（避難所）</a>
-</div>
+        <a href="https://x.com/90percent_side/status/2047189123170210071" class="btn-bbs" target="_blank">Xで議論に参加</a>
+        <a href="https://hayabusa3.open2ch.net/test/read.cgi/news/1777005531/l10" class="btn-bbs" target="_blank">おーぷん2ch（避難所）</a>
+    </div>
+    <div style="margin-top: 20px; font-size: 0.8rem; color: #666;">
+        ※GitHub Trafficにて「実アクセス数」を24時間監視中
+    </div>
 </div>
 </div>
 
@@ -78,6 +75,10 @@
         const target = new Date('2026-08-10T00:00:00').getTime();
         const now = new Date().getTime();
         const diff = target - now;
+        if (diff <= 0) {
+            document.getElementById('timer').innerHTML = "デバッグ開始";
+            return;
+        }
         const d = Math.floor(diff / (1000 * 60 * 60 * 24));
         const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));

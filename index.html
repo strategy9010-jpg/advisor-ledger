@@ -1,65 +1,92 @@
-　<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日本OSデバッグ宣言</title>
+    <title>Ada Project | 日本OSデバッグ宣言</title>
     <style>
-        body { background-color: #000; color: #fff; font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .container { max-width: 800px; margin: auto; border: 1px solid #333; padding: 20px; }
-        .badge { background: linear-gradient(45deg, #ffd700, #ffa500); color: #000; padding: 5px 15px; font-weight: bold; border-radius: 5px; display: inline-block; margin-bottom: 20px; }
-        h1 { border-left: 5px solid #ff0000; padding-left: 15px; font-size: 1.5rem; }
-        .counter-section { background: #111; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: center; }
-        #countdown { font-size: 1.8rem; color: #ff4500; font-weight: bold; }
-        .logic-card { background: #1a1a1a; border-left: 3px solid #555; padding: 15px; margin-bottom: 20px; }
-        .footer { text-align: center; font-size: 0.8rem; color: #666; margin-top: 50px; }
+        body { font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; line-height: 1.8; color: #333; background: #fff; margin: 0; padding: 0; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        header { text-align: center; padding: 60px 0; border-bottom: 1px solid #eee; }
+        h1 { font-size: 2.2rem; letter-spacing: -0.05em; }
+        .countdown-card { background: #000; color: #fff; padding: 30px; border-radius: 15px; text-align: center; margin: 30px 0; }
+        #timer { font-size: 2.5rem; font-weight: bold; }
+        .section { margin-bottom: 50px; }
+        .section h2 { font-size: 1.5rem; border-left: 5px solid #000; padding-left: 15px; margin-bottom: 20px; }
+        .highlight { background: #ffff00; font-weight: bold; padding: 0 5px; }
+        .bbs-box { background: #f4f4f4; border: 2px solid #000; padding: 30px; border-radius: 10px; text-align: center; }
+        .btn-bbs { display: inline-block; background: #000; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; }
+        .btn-bbs:hover { background: #333; }
+        footer { text-align: center; padding: 40px; color: #999; font-size: 0.8rem; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="badge">🛡️ 30,000インプレッション突破</div>
-        
-        <h1>日本OSデバッグ宣言</h1>
-        <p>地政学リスクと、9割の庶民のための生存戦略</p>
 
-        <div class="counter-section">
-            <p>本拠地 延べ訪問者数</p>
-            <div style="font-size: 1.2rem; color: #aaa;">※3万人の流入を順次記録中</div>
-        </div>
+<header>
+    <h1>日本OSデバッグ宣言</h1>
+    <p>地政学リスクと、9割の庶民のための生存戦略</p>
+</header>
 
-        <div class="counter-section">
-            <p>🏁 8.10 有給ボイコットまで</p>
-            <div id="countdown">読込中...</div>
-        </div>
-
-        <div class="logic-card">
-            <h3>【地政学各論】トロッコの「1」にされた日本</h3>
-            <p>世界地図を見れば明白です。米国は自給自足可能な「要塞」であり、戦争の勝率が最も高い。その米国が内患（貧富の差）を解消するために選んだのが、日本を「犠牲の1人」にするトロッコ問題の強行です。我々は米国を活かすための部品にされています。</p>
-        </div>
-
-        <div class="logic-card" style="border-color: #ff0000;">
-            <h3>【構造的搾取】無自覚な貧困化</h3>
-            <p>このままやで。3億あっても不安なのは、システムそのものが「窒息」を前提に設計されているから。810ボイコットは、その呼吸を一度止めるための、意志ある抵抗です。</p>
-        </div>
-
+<div class="container">
+    
+    <!-- ここにカウンターを移動しました -->
+    <div style="text-align: center; margin: 20px 0; font-family: sans-serif;">
+        <p style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">本拠地 延べ訪問者数</p>
+        <img src="https://f-counter.net" alt="counter" style="border: none;">
+        <p style="font-size: 0.8rem; color: #999; margin-top: 5px;">※3万人の流入を順次記録中</p>
     </div>
 
-    <script>
-        function updateCountdown() {
-            const targetDate = new Date('August 10, 2026 00:00:00').getTime();
-            const now = new Date().getTime();
-            const diff = targetDate - now;
+    <div class="countdown-card">
+        <div style="font-size: 0.9rem; color: #aaa; margin-bottom: 10px;">8.10 有給ボイコットまで</div>
+        <div id="timer">計測中...</div>
+    </div>
 
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const secs = Math.floor((diff % (1000 * 60)) / 1000);
+    <div class="section">
+        <h2>【地政学各論】トロッコの「1」にされた日本</h2>
+        <p>世界地図を見れば明白です。米国は自給自足可能な「要塞」であり、戦争の勝率が最も高い。その米国が内患（貧富の差）を解消するために選んだのが、日本を「犠牲の1人」にするトロッコ問題の強行です。我々は米国を活かすための部品にされています。</p>
+    </div>
 
-            document.getElementById('countdown').innerHTML = 
-                days + "日 " + hours + "時間 " + mins + "分 " + secs + "秒";
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
+    <div class="section">
+        <h2>【構造的搾取】無自覚な貧困化</h2>
+        <p>「3億あっても不安」なのは、国家OSに安心のコードがないから。増税、物価高、低賃金。<span class="highlight">9割の庶民</span>は、大国を支えるための使い捨ての部品として、無自覚に搾取され続けています。</p>
+    </div>
+
+    <div class="section">
+        <h2>【解決策】8.10 有給ボイコット</h2>
+        <p>「有給を取る勇気がない」という方へ。あなたはサボるのではなく、<span class="highlight">「国家OSのデバッグ」</span>という公務を執行するのです。40%が同時に休めば、システムは止まり、再起動が始まります。</p>
+    </div>
+
+   <div class="bbs-box">
+    <h3>作戦会議室（公式掲示板）</h3>
+    <p style="font-size: 0.9rem; text-align: left; margin-bottom: 20px;">
+        現在、メディア掲載（スポニチ・dメニュー等）による急激なアクセス集中により、議論の透明性とリアルタイム性を確保するため、掲示板機能をX上の公式スレッドに集約しています。
+    </p>
+    <div class="bbs-container">
+    <a href="https://x.com/90percent_side/status/2047189123170210071" class="btn-bbs" target="_blank">Xで議論に参加</a>
+    <a href="https://hayabusa3.open2ch.net/test/read.cgi/news/1777005531/l10" class="btn-bbs" target="_blank">おーぷん2ch（避難所）</a>
+</div>
+</div>
+</div>
+
+<footer>
+    &copy; Ada Project - Logic by Logic. All Rights Reserved.
+</footer>
+
+<script>
+    function updateTimer() {
+        const target = new Date('2026-08-10T00:00:00').getTime();
+        const now = new Date().getTime();
+        const diff = target - now;
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
+        document.getElementById('timer').innerHTML = d + "日 " + h + "時間 " + m + "分 " + s + "秒 ";
+    }
+    setInterval(updateTimer, 1000);
+    updateTimer();
+</script>
+
 </body>
 </html>
